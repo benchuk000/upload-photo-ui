@@ -1,0 +1,22 @@
+.manage-users__cards {
+    display: none;
+}
+@media only screen and (max-width: 500px) {
+    .edit-button,
+    .delete-button {
+        /* To ovveride material inline styles. */
+        display: none !important; 
+    }
+
+    .manage-users__table {
+        display: none;
+    }
+    .manage-users__cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-top: 30px;
+
+    }
+    
+}
