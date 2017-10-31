@@ -1,4 +1,5 @@
-import { actions as toastrActions } from 'react-redux-toastr'
+
+import {toastr} from 'react-redux-toastr'
 import * as userService from '../services/userService.js';
 
 export const API_USER_REQUEST = '[User] API Request';
@@ -27,20 +28,13 @@ export const userApiRequest = id => dispatch => {
 
 export const userApiUpdateRequestSuccess = user => dispatch => {
   dispatch({ type: API_USER_UPDATE_REQUEST_SUCCESS, user });
-  dispatch(toastrActions.add({ 
-    type: 'success',
-    title: 'User has been updated',
-    timeOut: 2000,
-  }));
+  toastr.success('User has been updated', '');
+
 };
 
 export const userApiUpdateRequestFail = () => dispatch => {
   dispatch({ type: API_USER_UPDATE_REQUEST_FAIL });
-  dispatch(toastrActions.add({
-    type: 'error',
-    title: 'User has not been updated',
-    timeOut: 2000,
-  }))
+  toastr.error('User has not been updated');
 };
 
 export const userApiUpdateRequest = id => (dispatch, getState) => {

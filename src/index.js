@@ -9,14 +9,19 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 import './index.css';
 
 import generateStore from './store/configureStore';
-import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
+
+import App from './containers/App/App';
+
+import Routes from './Router';
 
 ReactDOM.render((
   <BrowserRouter>
     <MuiThemeProvider>
     <Provider store={generateStore()}>
-      <App />
+      <App>
+        <Routes />
+      </App>
     </Provider>
     </MuiThemeProvider>
   </BrowserRouter>

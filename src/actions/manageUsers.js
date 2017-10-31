@@ -1,5 +1,5 @@
-import { actions as toastrActions } from 'react-redux-toastr'
 import * as userService from '../services/userService.js';
+import {toastr} from 'react-redux-toastr'
 
 export const SET_SELECTED_ROW = 'SET_SELECTED_ROW';
 export const SET_USERS = 'SET_USERS';
@@ -33,11 +33,7 @@ export const usersApiRequestSuccess = users => ({ type: API_USERS_REQUEST_SUCCES
 
 export const usersApiRequestFail = () => dispatch => {
   dispatch({ type: API_USERS_REQUEST_FAIL });
-  dispatch(toastrActions.add({
-    type: 'error',
-    title: 'Could not get users',
-    timeOut: 2000,
-  }))
+  toastr.error('Could not get users');
 } 
 
 export const usersApiRequest = params => dispatch => {
@@ -50,11 +46,7 @@ export const userApiDeleteRequestSuccess = user => ({ type: API_USER_DELETE_REQU
 
 export const userApiDeleteRequestFail = () => dispatch => {
   dispatch({ type: API_USER_DELETE_REQUEST_FAIL });
-  dispatch(toastrActions.add({
-    type: 'error',
-    title: 'User has not been deleted',
-    timeOut: 2000,
-  }))
+  toastr.error('User has not been deleted');
 } 
 
 export const userApiDeleteRequest = () => (dispatch, getState) => {
